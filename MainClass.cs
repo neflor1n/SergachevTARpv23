@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,9 @@ namespace SergachevTARpv23
 
 
             // 
+
+            // 1) kalkulaator
+            /*
             Console.Write("Sisesta sümbool (+, -, *, /): ");
             char sumbool = char.Parse(Console.ReadLine());
             Console.Write("\n");
@@ -55,8 +59,11 @@ namespace SergachevTARpv23
             double vastu = Funktsioonid.Arvuta(sumbool, arv5, arv6);
             Console.Write('\n');
             Console.WriteLine("Vastu: {0}", vastu);
+            */
 
-            // JUKU KINNOS KAIMA 
+
+            // 2) JUKU KINNOS KAIMA 
+            /*
             Console.Write("Mis on sinu nimi?: ");
             string eesnimi = Console.ReadLine();
             Console.Write('\n');
@@ -65,6 +72,39 @@ namespace SergachevTARpv23
             Console.Write("\n");
             string kinno = Funktsioonid.Jukku(vanus);
             Console.WriteLine(kinno);
+            */
+
+            // 3) Leia ?% hinnasoodustusega hinna põhjal alghind
+            /*
+            Console.Write("Sisesta allahindluse protsent: ");
+            double discountPercentage = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine('\n');
+            Console.Write("Sisesta soodushind: ");
+            double discountedPrice = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine('\n');
+            double originalPrice = Funktsioonid.originaalHinnaKalkulaator(discountedPrice, discountPercentage);
+            Console.WriteLine($"Alghind enne allahindlust: {originalPrice:F2} euro");
+            */
+
+            // 4) Küsi inimese pikkus ning teata, kas ta on lühike, keskmine või pikk (piirid pane ise paika)
+            /*
+            Console.Write("Mis on sinu sugu?: ");
+            string sugu = Console.ReadLine();
+            Console.Write("\nMis on su pikkus sentimeetrites?: ");
+            int korgus = int.Parse(Console.ReadLine());
+            string korgusKategooria = Funktsioonid.inimeneKorgus(sugu, korgus);
+            Console.WriteLine(korgusKategooria);
+            */
+
+            // 5) Küsi inimeselt poes eraldi kas ta soovib osta piima, saia, leiba. Löö hinnad kokku ning teata, mis kõik ostetud kraam maksma läheb.
+
+            double totalCost = Funktsioonid.Pood();
+            CultureInfo euroCulture = new CultureInfo("est-EST");
+
+            euroCulture.NumberFormat.CurrencySymbol = "€";
+
+            string formattedCost = totalCost.ToString("C", euroCulture);
+            Console.WriteLine($"Ostetud kraam maksab kokku: {formattedCost}");
         }
     }
 }
