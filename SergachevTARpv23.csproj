@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>SergachevTARpv23.MainClass</StartupObject>
+    <StartupObject>SergachevTARpv23.kordused_ja_massiivid</StartupObject>
     <ApplicationIcon>currency_dollar_icon_264090.ico</ApplicationIcon>
   </PropertyGroup>
 
