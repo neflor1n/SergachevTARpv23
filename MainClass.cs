@@ -12,9 +12,10 @@ namespace SergachevTARpv23
         public static void Main(string[] args)
         {
             
-             Console.OutputEncoding = Encoding.UTF8;
-            /* Console.WriteLine("Hello World!!!");
-             string nimetus = "Python";
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Console.WriteLine("Hello World!!!");
+            /*  string nimetus = "Python";
              Console.WriteLine(nimetus);
              Console.WriteLine("Hello, my friend, {0}", nimetus);
              //Funktsioonid.Tere(nimetus);
@@ -65,7 +66,7 @@ namespace SergachevTARpv23
             // 2) JUKU KINNOS KAIMA 
             /*
             Console.Write("Mis on sinu nimi?: ");
-            string eesnimi = Console.ReadLine();
+            string eesnimi = Console.ReadLine().ToUpper();
             Console.Write('\n');
             Console.WriteLine("Kui vana sa oled?: ");
             int vanus = int.Parse(Console.ReadLine());
@@ -97,7 +98,7 @@ namespace SergachevTARpv23
             */
 
             // 5) Küsi inimeselt poes eraldi kas ta soovib osta piima, saia, leiba. Löö hinnad kokku ning teata, mis kõik ostetud kraam maksma läheb.
-
+            /*
             double totalCost = Funktsioonid.Pood();
             CultureInfo euroCulture = new CultureInfo("est-EST");
 
@@ -105,6 +106,13 @@ namespace SergachevTARpv23
 
             string formattedCost = totalCost.ToString("C", euroCulture);
             Console.WriteLine($"Ostetud kraam maksab kokku: {formattedCost}");
+            */
+
+            Random random = new Random();
+            int paev_nr = random.Next(-4, 30);
+            string paeva_nimetus = Funktsioonid.Paevad(paev_nr);
+            Console.WriteLine("Number: {0}", paev_nr);
+            Console.WriteLine(paeva_nimetus);
         }
     }
 }

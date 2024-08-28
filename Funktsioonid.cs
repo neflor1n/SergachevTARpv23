@@ -18,7 +18,9 @@ namespace SergachevTARpv23
          }
         */
         // Loo arvuta funktsioon, mis sõltub 3 parametrist: tehe, arv1, arv2. Kasuta if konstruktsioon. Tulemus kuva ekraanile.
-        
+
+        // #1
+
         public static double Arvuta(char tehe, double arv1, double arv2)
         {
             double tulemus;
@@ -53,12 +55,12 @@ namespace SergachevTARpv23
                 return 0;
             }
 
-                Console.WriteLine($"Tulemus: {tulemus}");
-                return tulemus;
-            
+            Console.WriteLine($"Tulemus: {tulemus}");
+            return tulemus;
+
         }
 
-
+        // #2
         public static string Jukku(int vanus)
         {
             string eesnimi = "Juku";
@@ -92,7 +94,7 @@ namespace SergachevTARpv23
             }
         }
 
-        
+        // #3
         public static double originaalHinnaKalkulaator(double discountedPrice, double discountPercentage)
         {
             double discountFraction = discountPercentage / 100;
@@ -102,13 +104,15 @@ namespace SergachevTARpv23
             return originalPrice;
         }
 
+        // #4
+
         public static string inimeneKorgus(string sugu, int korgus)
         {
             if (sugu == "Mees")
             {
                 if (korgus < 165)
                 {
-                    return "Sa oled lühike mees!";
+                    return "Sa oled lühike kasv mees!";
                 }
                 else if (korgus >= 166 && korgus <= 180)
                 {
@@ -123,7 +127,7 @@ namespace SergachevTARpv23
             {
                 if (korgus < 155)
                 {
-                    return "Sa oled lühike naine!";
+                    return "Sa oled lühike kasv naine!";
                 }
                 else if (korgus >= 156 && korgus <= 170)
                 {
@@ -139,6 +143,9 @@ namespace SergachevTARpv23
                 return "teadmata sugu";
             }
         }
+
+
+        // #5
         public static double Pood()
         {
             const double milkPrice = 1.50;
@@ -149,7 +156,7 @@ namespace SergachevTARpv23
 
             Console.WriteLine("Kui palju piima soovite osta? (sisesta number või 0 kui ei soovi): ");
             int milkQuantity = int.Parse(Console.ReadLine());
-            if(milkQuantity > 0)
+            if (milkQuantity > 0)
             {
                 totalCost = milkQuantity * milkPrice;
             }
@@ -169,6 +176,27 @@ namespace SergachevTARpv23
             }
 
             return totalCost;
+        }
+
+       
+        public static string Paevad(int nr)
+        {
+            string paev;
+            switch (nr)
+            {
+                case 1: paev = "Esmaspäev"; break;
+                case 2: paev = "Teisipäev"; break;
+                case 3: paev = "Kolmapäev"; break;
+                case 4: paev = "Neljapäev"; break;
+                case 5: paev = "Reede"; break;
+                case 6: paev = "Laupäev"; break;
+                case 7: paev = "Pühapäev"; break;
+
+                default:
+                    paev = "Ei saa määrata!";
+                    break;
+            }
+            return paev;
         }
     }
 
