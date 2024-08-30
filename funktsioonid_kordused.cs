@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -83,10 +84,11 @@ namespace SergachevTARpv23
             // Нахождение старшего и лмадшего человека
             Inimene vanimInimene = inimesed.OrderByDescending(inimene => inimene.Vanus).First();
             Inimene nooremInimene = inimesed.OrderBy(inimene => inimene.Vanus).First();
+
             Console.WriteLine($"\nSummaarne vanus: {summaarneVanus}");
-            Console.WriteLine($"Aritmeetiline keskmine vanus: {keskmineVanus}");
-            Console.WriteLine($"Vanim inimene: {vanimInimene.Nimi}, vanus: {vanimInimene.Vanus}");
-            Console.WriteLine($"Noorim inimene: {nooremInimene.Nimi}, vanus: {nooremInimene.Vanus}");
+            Console.WriteLine($"\nAritmeetiline keskmine vanus: {keskmineVanus}");
+            Console.WriteLine($"\nVanim inimene: {vanimInimene.Nimi}, vanus: {vanimInimene.Vanus}");
+            Console.WriteLine($"\nNoorim inimene: {nooremInimene.Nimi}, vanus: {nooremInimene.Vanus}");
 
         }
 
@@ -110,7 +112,7 @@ namespace SergachevTARpv23
         public static void ArvaArv()
         {
             Random rand = new Random();
-            int arvutiArv = rand.Next(1, 101);
+            int arvutiArv = rand.Next(1, 50);
 
             int katsetusteArv = 0;
             const int maksKatset = 5;
@@ -118,38 +120,41 @@ namespace SergachevTARpv23
 
             while (katsetusteArv < maksKatset && !onOigeArvamine)
             {
-                Console.WriteLine("Arva arv (1-100): ");
+                Console.WriteLine("Arva arv (1-50): ");
                 string sisend = Console.ReadLine();
                 int kasutajaArv;
+
                 // проверка на целое число 
+
                 if (int.TryParse(sisend, out kasutajaArv))
                 {
                     kasutajaArv++;
                     
-                    if (kasutajaArv < arvutiArv)
+                    if (kasutajaArv == arvutiArv)
                     {
-                        Console.WriteLine("Liigne! Proovi uuesti.");
+                        Console.WriteLine($"\nÕige! Arv oli {arvutiArv}. Kasutaja arvasi õigesti {katsetusteArv} katse jooksul.");
+                        onOigeArvamine = true;
+                        
                     }
                     else if (kasutajaArv > arvutiArv)
                     {
-                        Console.WriteLine("Vähe! Proovi uuesti.");
+                        Console.WriteLine("\nVähe! Proovi uuesti.");
                     }
                     else
                     {
-                        Console.WriteLine($"Õige! Arv oli {arvutiArv}. Kasutaja arvasi õigesti {katsetusteArv} katse jooksul.");
-                        onOigeArvamine = true;
+                        Console.WriteLine("\nLiigne! Proovi uuesti.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Palun sisesta kehtiv arv.");
+                    Console.WriteLine("\nPalun sisesta kehtiv arv.");
                 }
             }
 
             
             if (!onOigeArvamine)
             {
-                Console.WriteLine($"Kahjuks ei suutnud sa arvata õiget arvu. Arv oli {arvutiArv}.");
+                Console.WriteLine($"\nKahjuks ei suutnud sa arvata õiget arvu. Arv oli {arvutiArv}.");
             }
 
         }
@@ -175,9 +180,10 @@ namespace SergachevTARpv23
             Array.Reverse( arvud );
 
             string suurimArv = string.Join( ", ", arvud );
-
+            int.Parse(suurimArv);
             Console.WriteLine($"Suurim neljakohaline arv on: {suurimArv}");
         }
     }
 
 }
+
