@@ -34,50 +34,7 @@ namespace SergachevTARpv23
             
 
 
-            //II. osa listidf ja sõnastikud
-
-            ArrayList arrayList = new ArrayList();
-            arrayList.Add("Esimene");
-            arrayList.Add("Teine");
-            arrayList.Add("Kolmas");
-            Console.WriteLine("Otsing: ");
-            string vastus = Console.ReadLine();
-            if (vastus != null && arrayList.Contains(vastus))
-            {
-                Console.WriteLine($"Ostitav element asub {arrayList.IndexOf(vastus)}. kohal");
-            }
-            else
-            {
-                Console.WriteLine($"Kokku oli {arrayList.Count} elemente, vaid otsitav puudub");
-            }
-
-            arrayList.Clear();
-            arrayList.Insert(0, "Anna");
-            arrayList.Insert(1, "Inna");
-            Console.WriteLine(arrayList);
-
-
-
-            List<string> abc = new List<string>();
-            try
-            {
-                foreach (string rida in File.ReadAllLines(@"..\..\..\abc.txt"))
-                {
-                    abc.Add(rida);
-                }
             
-            }
-            catch (Exception e)
-            {
-                Console.Error.WriteLine(e.Message);
-            }
-
-            foreach (string e in abc)
-            {
-                Console.Write(e);
-            }
-            Console.ReadLine();
-
 
             // #1
 
