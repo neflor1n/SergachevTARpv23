@@ -16,35 +16,35 @@ namespace SergachevTARpv23
 
 
 
-           
+            // --------------- Ülessane #5 ---------------
 
 
-                // Коллекция для хранения студентов
-                List<Student> students = new List<Student>();
+            // Коллекция для хранения студентов
+            List<Student> students = new List<Student>();
 
-                // Пример добавления студентов
-                var student1 = new Student("Ivanov", "Ivan", 20);
-                var student2 = new Student("Petrova", "Anna", 21);
+            // добавления студентов
+            var student1 = new Student("Ivanov", "Ivan", 20);
+            var student2 = new Student("Petrova", "Anna", 21);
 
-                students.Add(student1);
-                students.Add(student2);
+            students.Add(student1);
+            students.Add(student2);
 
-                // Пример добавления курсов и оценок
-                student1.AddCourse("Math");
-                student1.AddGrade("Math", 90);
-                student1.AddGrade("Math", 85);
+            // добавления курсов и оценок
+            student1.AddCourse("Math");
+            student1.AddGrade("Math", 90);
+            student1.AddGrade("Math", 85);
 
-                student2.AddCourse("Physics");
-                student2.AddGrade("Physics", 78);
+            student2.AddCourse("Physics");
+            student2.AddGrade("Physics", 78);
 
-                // Вывод информации о студентах
-                foreach (var student in students)
-                {
-                    student.DisplayInfo();
-                }
+            // Вывод информации о студентах
+            foreach (var student in students)
+            {
+                student.DisplayInfo();
+            }
 
-                // Получение средней оценки студента
-                Console.WriteLine($"Average grade in Math for {student1.LastName}: {student1.GetAverageGrade("Math")}");
+            // Получение средней оценки студента
+            Console.WriteLine($"Average grade in Math for {student1.LastName}: {student1.GetAverageGrade("Math")}");
             
         
 
