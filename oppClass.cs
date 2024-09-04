@@ -15,112 +15,207 @@ namespace SergachevTARpv23
             Console.OutputEncoding = Encoding.UTF8;
 
 
-            // --------------- Ülessane #1 ---------------
 
-            /*
-            Console.WriteLine("Sisesta numbrid: ");
-            string numbstr = Console.ReadLine();
-            string[] numblist = numbstr.Split(" ");
-            int[] newlist = new int[numblist.Length];
-            for (int i = 0; i < numblist.Length; i++)
-            {
-                int a;
-                if (i == 0)
+           
+
+
+                // Коллекция для хранения студентов
+                List<Student> students = new List<Student>();
+
+                // Пример добавления студентов
+                var student1 = new Student("Ivanov", "Ivan", 20);
+                var student2 = new Student("Petrova", "Anna", 21);
+
+                students.Add(student1);
+                students.Add(student2);
+
+                // Пример добавления курсов и оценок
+                student1.AddCourse("Math");
+                student1.AddGrade("Math", 90);
+                student1.AddGrade("Math", 85);
+
+                student2.AddCourse("Physics");
+                student2.AddGrade("Physics", 78);
+
+                // Вывод информации о студентах
+                foreach (var student in students)
                 {
-                    a = int.Parse(numblist[numblist.Length - 1]) + int.Parse(numblist[i + 1]);
-                }
-                else if (i == numblist.Length - 1)
-                {
-                    a = int.Parse(numblist[i - 1] + int.Parse(numblist[0]));
-
-                }
-                else
-                {
-                    a = int.Parse(numblist[i - 1]) + int.Parse(numblist[i + 1]);
+                    student.DisplayInfo();
                 }
 
-                newlist[i] = a;
-
-            }
-            Console.Write("New list of sums: ");
-            Console.Write(string.Join(" ", newlist));
-
-            */
-
-
-            // --------------- Ülessane #2 ---------------
-
-            /*
-
-            // рандомный список чисео
-            List<int> numbers = new List<int>();
-            Random rand = new Random();
-            for (int i = 0; i < 20; i++) { 
-                numbers.Add(rand.Next(0, 101));
-            }
-
-            // Päärisnumbrid
-            List<int> evenNumbers = numbers.Where(n => n % 2 == 0).ToList();
-
-            // Paritu numbrid
-
-            List<int> oddNumbers = numbers.Where(n => n % 2 != 0).ToList();
-
-            // Uus nimekiri, kus kõigepealt lähevad ebaühtlased, seejärel paaris
-
-            List<int> sortNumbers = evenNumbers.Concat(oddNumbers).ToList();
-
-            Console.WriteLine("Sorteeritud numbers: ");
-            sortNumbers.ForEach(n => Console.WriteLine(n + " "));
-
-
-            */
-
-            // --------------- Ülessane #3 ---------------
+                // Получение средней оценки студента
+                Console.WriteLine($"Average grade in Math for {student1.LastName}: {student1.GetAverageGrade("Math")}");
             
-            List<Tooted> tooted = new List<Tooted>
-            {
-                new Tooted("Õun", 52),
-                new Tooted("Banaan", 89),
-                new Tooted("Leib", 265),
-                new Tooted("Kanafilee", 165),
-                new Tooted("Küpsis", 502)
-            };
-
-            Console.WriteLine("Введите ежедневную потребность в калориях: ");
-            if (!int.TryParse(Console.ReadLine(), out int dailyCalorieNeed))
-            {
-                Console.WriteLine("Неверный ввод.");
-                return;
-            }
-
-            Console.WriteLine("\nСписок ингредиентов и калорийность на 100 г: ");
-            foreach (var item in tooted)
-            {
-                Console.WriteLine($"{item.ToodeNimetus}: {item.Kalorid} ккал/100 г");
-            }
-
-            Console.WriteLine("\nКоличество каждого продукта, которое вы можете потреблять, чтобы удовлетворить ежедневную потребность в калориях: ");
-
-            foreach (var item in tooted)
-            {
-                // Высчитывает максимальное количество определенного продукта, которое можно потреблять,
-                // что бы достичт заданного суточного калорийного лимита
-                double maxAmount = (double)dailyCalorieNeed / item.Kalorid * 100;
-                Console.WriteLine($"{item.ToodeNimetus}: {maxAmount:F2} г");
-            }
         
-            
 
-            // --------------- Ülessane #4 ---------------
+       
 
 
-            Dictionary<string, string> maakonnadPealinnad = new Dictionary<string, string>
+
+
+
+        // --------------- Ülessane #1 ---------------
+
+        /*
+        Console.WriteLine("Sisesta numbrid: ");
+        string numbstr = Console.ReadLine();
+        string[] numblist = numbstr.Split(" ");
+        int[] newlist = new int[numblist.Length];
+        for (int i = 0; i < numblist.Length; i++)
+        {
+            int a;
+            if (i == 0)
+            {
+                a = int.Parse(numblist[numblist.Length - 1]) + int.Parse(numblist[i + 1]);
+            }
+            else if (i == numblist.Length - 1)
+            {
+                a = int.Parse(numblist[i - 1] + int.Parse(numblist[0]));
+
+            }
+            else
+            {
+                a = int.Parse(numblist[i - 1]) + int.Parse(numblist[i + 1]);
+            }
+
+            newlist[i] = a;
+
+        }
+        Console.Write("New list of sums: ");
+        Console.Write(string.Join(" ", newlist));
+
+        */
+
+
+        // --------------- Ülessane #2 ---------------
+
+        /*
+
+        // рандомный список чисео
+        List<int> numbers = new List<int>();
+        Random rand = new Random();
+        for (int i = 0; i < 20; i++) { 
+            numbers.Add(rand.Next(0, 101));
+        }
+
+        // Päärisnumbrid
+        List<int> evenNumbers = numbers.Where(n => n % 2 == 0).ToList();
+
+        // Paritu numbrid
+
+        List<int> oddNumbers = numbers.Where(n => n % 2 != 0).ToList();
+
+        // Uus nimekiri, kus kõigepealt lähevad ebaühtlased, seejärel paaris
+
+        List<int> sortNumbers = evenNumbers.Concat(oddNumbers).ToList();
+
+        Console.WriteLine("Sorteeritud numbers: ");
+        sortNumbers.ForEach(n => Console.WriteLine(n + " "));
+
+
+        */
+
+        // --------------- Ülessane #3 ---------------
+
+        /*
+        List<Tooted> tooted = new List<Tooted>
+        {
+            new Tooted("Õun", 52),
+            new Tooted("Banaan", 89),
+            new Tooted("Leib", 265),
+            new Tooted("Kanafilee", 165),
+            new Tooted("Küpsis", 502)
+        };
+
+        Console.WriteLine("Введите ежедневную потребность в калориях: ");
+        if (!int.TryParse(Console.ReadLine(), out int dailyCalorieNeed))
+        {
+            Console.WriteLine("Неверный ввод.");
+            return;
+        }
+
+        Console.WriteLine("\nСписок ингредиентов и калорийность на 100 г: ");
+        foreach (var item in tooted)
+        {
+            Console.WriteLine($"{item.ToodeNimetus}: {item.Kalorid} ккал/100 г");
+        }
+
+        Console.WriteLine("\nКоличество каждого продукта, которое вы можете потреблять, чтобы удовлетворить ежедневную потребность в калориях: ");
+
+        foreach (var item in tooted)
+        {
+            // Высчитывает максимальное количество определенного продукта, которое можно потреблять,
+            // что бы достичт заданного суточного калорийного лимита
+            double maxAmount = (double)dailyCalorieNeed / item.Kalorid * 100;
+            Console.WriteLine($"{item.ToodeNimetus}: {maxAmount:F2} г");
+        }
+    */
+        // --------------- Ülessane #3-№2 ---------------
+
+        /*
+
+
+    List<Tooted> tooted = new List<Tooted>
+        {
+            new Tooted("Õun", 52),
+            new Tooted("Banaan", 89),
+            new Tooted("Kanafilee", 165),
+            new Tooted("Riis", 130),
+            new Tooted("Kartul", 77),
+            new Tooted("Piim", 42)
+        };
+
+
+        Console.WriteLine("\nSisestage oma nimi:");
+        string nimi = Console.ReadLine();
+        Console.WriteLine("\nSisestage oma vanus:");
+        int vanus = int.Parse(Console.ReadLine());
+        Console.WriteLine("\nSisestage oma sugu (0 - mees, 1 - naine):");
+        Sugu sugu = (Sugu)int.Parse(Console.ReadLine());
+        Console.WriteLine("\nSisestage oma pikkus (cm):");
+        int pikkus = int.Parse(Console.ReadLine());
+        Console.WriteLine("\nSisestage oma kaal (kg):");
+        double kaal = double.Parse(Console.ReadLine());
+        Console.WriteLine("\nValige oma aktiivsuse tase (1 - Istuv, 2 - Vähene, 3 - Mõõdukas, 4 - Kõrge, 5 - Väga kõrge):");
+        double aktiivsus = double.Parse(Console.ReadLine());
+
+
+        double aktiivsusKoef = aktiivsus switch
+        {
+            1 => 1.2,
+            2 => 1.375,
+            3 => 1.55,
+            4 => 1.725,
+            5 => 1.9,
+            _ => 1.2
+        };
+
+
+        inimene inimene = new inimene(nimi, vanus, sugu, pikkus, kaal, aktiivsusKoef);
+        double paevaneKaloriteArv = inimene.HB_vorrand();
+        Console.WriteLine($"{inimene.Nimi} on " + $"{inimene.Vanus} aastat vana" + $" Ta on {inimene.Sugu}. SBI = {inimene.HB_vorrand()}");
+        Console.WriteLine($"Ваша ежедневная норма калорий составляет: {paevaneKaloriteArv:F2} калорий.");
+
+
+        Console.WriteLine("Продукты и их количество, которые можно употреблять в день:");
+        foreach (var toode in tooted)
+        {
+
+            double kogus = paevaneKaloriteArv / toode.Kalorid;
+            Console.WriteLine($"{toode.ToodeNimetus}: {kogus:F2} g");
+        }
+
+        */
+
+        // --------------- Ülessane #4 ---------------
+
+
+        Dictionary<string, string> maakonnadPealinnad = new Dictionary<string, string>
             {
             { "Tallinn", "Harjumaa" },
             { "Tartu", "Tartumaa" },
             { "Pärnu", "Pärnumaa" },
-            { "Kohtla-Järve", "Ida-Virumaa" },
+            { "Narva", "Ida-Virumaa" },
             { "Viljandi", "Viljandimaa" }
         };
 
